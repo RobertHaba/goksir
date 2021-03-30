@@ -309,6 +309,7 @@
     addAutoComplete()
     const addTitleAttribute = () =>{
         let allMenuItem = document.querySelectorAll('.menu-item-object-page')
+        let menuItemHome = document.querySelectorAll('.menu-item-home')
         let allPageMenuItems = document.querySelectorAll(".page_item")
         let allCatItemsInAllPostPage = document.querySelectorAll(".cat-item")
         let pageNumbersInAllPostPage = document.querySelectorAll(".page-numbers")
@@ -317,12 +318,15 @@
         let allLinkInPagePost = document.querySelectorAll(".post-content a")
 
 
-        console.log(allLinkInPagePost);
 
         
         if(allMenuItem.length !== 0){
             addTitleAttributeLoop(allMenuItem, 'Kliknij, aby przejść do')
             addAriaLabelAttributeLoop(allMenuItem, 'Kliknij, aby przejść do')
+        }
+        if(menuItemHome.length !== 0){
+            addTitleAttributeLoop(menuItemHome, 'Kliknij, aby przejść do')
+            addAriaLabelAttributeLoop(menuItemHome, 'Kliknij, aby przejść do')
         }
         if(allPageMenuItems.length !== 0){
             addTitleAttributeLoop(allPageMenuItems, 'Kliknij, aby przejść do')

@@ -3,18 +3,14 @@
     Theme URI: https://www.siteman.pl/
     Author: Robert Hapka
     Author URI: https://www.siteman.pl/
-    Version: 1.03.2021.001,
+    Version: 1.03.2021.002,
     Description: 
-    V1.03.2021.001 
+    V1.03.2021.002 
     Poprawienie dostępności
-    Naprawa popularnych postów
-    Naprawa pokazywania godziny postów z zakładce aktualności
-    Popularne posty odświeżają się co 7dni
-    Popularny post odświeża się co 24h w postach lub stronach
-    Możliwość zatrzymania sliderów
-    Wsparcie poruszania klawiszowego w menu
-    Naprawa wyświetlania postów na stronie głównej
-    Poprawa kontrastu,
+    Naprawa postów w aktualnościach
+    Dodanie znaczików title
+    dodanie atrybutów aria-label
+    poprawki wizualne
 
 
     */
@@ -865,19 +861,30 @@
     }
     
     .footer-main {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 180px));
-        grid-gap: 30px;
-        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         margin: 0 auto;
         padding: 50px;
+        width: 100%;
         max-width: 1310px;
         background-color: var(--light);
     }
     
-    .footer-main__column {
+    .footer-main-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 230px));
+        grid-gap: 30px;
+        width: calc(100% - 120px);
+    }
+    
+    .footer-main-container__column {
         display: flex;
         flex-direction: column;
+    }
+    
+    .footer-main__column-social {
+        width: 100px;
     }
     
     .footer-main-title {
@@ -885,11 +892,23 @@
         font-size: 1.2rem;
     }
     
-    .footer-main__column li {
-        margin-bottom: 0.1rem;
+    .footer-main-container__column li {
+        margin-bottom: 0.3rem;
     }
     
-    .footer-main__column li a,
+    .footer-main-container__column li a::before {
+        content: "-";
+        font-size: .5em;
+        color: #464646;
+        font-weight: 700;
+        padding-right: 0.5rem;
+    }
+    
+    .footer-main-container__column--normal li a::before {
+        display: none;
+    }
+    
+    .footer-main-container__column li a,
     .footer-media-box,
     .footer-menu-text {
         margin: 5px 0;
@@ -897,6 +916,13 @@
         font-size: 0.9rem;
         color: var(--light-black);
         text-decoration: none;
+    }
+    
+    .social-stick-top-position {
+        position: fixed;
+        top: 60px;
+        right: 10px;
+        z-index: 20;
     }
     
     .bip-logo {

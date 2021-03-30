@@ -54,5 +54,9 @@
             </div>
         </nav>   
     </section>
+    
+    <a class="social-stick-top-position" title="Kliknij, aby przejść do strony Biuletyn Informacji Publicznej (BIP)" title="Kliknij, aby przejść do strony Biuletyn Informacji Publicznej (BIP)" href="http://goksir-lipusz.biuletyn.net/">
+                <i class="bip-logo"></i>
+     </a>
     <main class="layout">
     

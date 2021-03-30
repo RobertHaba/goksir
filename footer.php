@@ -89,25 +89,26 @@ wpp_get_mostpopular($args);
         </div>
     </div>
     <div class="footer-main">
-        <div class="footer-main__column">
+        <div class="footer-main__column-social">
             <a class="footer-media-box" title="Kliknij,aby przejśc do strony GOKSiR na Facebooku" aria-label="Kliknij,aby przejśc do strony GOKSiR na Facebooku" href="https://www.facebook.com/goksir.lipusz">
                 <div class="facebook-circle"><i class="fab fa-facebook-f"></i></div>
                 <p >Facebook</p>
             </a>
         </div>
-        <div class="footer-main__column">
+        <div class="footer-main-container">
+        <div class="footer-main-container__column">
             <h2 class="footer-main-title">Menu</h2>
             <?php wp_nav_menu(array(
                     'theme_location' => 'navbar-menu',
                 )); ?>
         </div>
-        <div class="footer-main__column">
+        <div class="footer-main-container__column">
             <h2 class="footer-main-title">Informacje</h2>
             <?php wp_nav_menu(array(
                     'theme_location' => 'footer-menu-information',
                 )); ?>
         </div>
-        <div class="footer-main__column">
+        <div class="footer-main-container__column footer-main-container__column--normal">
             <h2 class="footer-main-title">GOKSiR</h2>
             <div class="footer-menu">
                 <ul class="footer-menu-list">
@@ -121,7 +122,7 @@ wpp_get_mostpopular($args);
                 </ul>
             </div>
         </div>
-        <div class="footer-main__column">
+        <div class="footer-main-container__column">
             <h2 class="footer-main-title">Godziny otwarcia</h2>
             <div class="footer-menu">
                 <ul class="footer-menu-list">
@@ -139,6 +140,7 @@ wpp_get_mostpopular($args);
                     echo get_theme_mod('sec_hours-open-6', '');?> </p></li>
                 </ul>
             </div>
+        </div>
         </div>
     </div>
     <div class="footer-policy">
