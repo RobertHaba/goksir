@@ -15,8 +15,8 @@
                 </p>
             </div>
             <div class="header-slider__options">
-                <button class="slider-btn" id="carouselPause" aria-label="Zatrzymaj animację karuzeli">Zatrzymaj</button>
-                <button class="slider-btn" id="carouselStart" aria-label="Wznów animację karuzeli">Wznów</button>
+                <button class="slider-btn" id="carouselPause" title="Kliknij, aby zatrzymać karuzele" aria-label="Zatrzymaj animację karuzeli">Zatrzymaj</button>
+                <button class="slider-btn" id="carouselStart" title="Kliknij, aby wznowić karuzele" aria-label="Wznów animację karuzeli">Wznów</button>
             </div>
         </div>
         <?php if(get_theme_mod('set_critical_information', '') != ""){?>
@@ -42,7 +42,7 @@
                         $post_date = $post->post_date;
                         ?>
                 <article class="post-news post-news--big">
-                    <a href="<?php echo $permalink ?>" title="<?php echo $title ?>">
+                    <a href="<?php echo $permalink ?>" title="Kliknij, aby przejść do <?php the_title() ?>">
                         <div class="post-news__image">
                             <?php echo $thumbnail ?>
                         </div>
@@ -67,7 +67,7 @@
                 $query->the_post()  
                 ?>
                 <article class="post-news">
-                    <a href="<?php the_permalink(); ?>" title="<?php echo $title ?>">
+                    <a href="<?php the_permalink(); ?>" title="Kliknij, aby przejść do <?php the_title() ?>">
                         <div class="post-news__image">
                             <?php the_post_thumbnail();?>
                         </div>
@@ -92,7 +92,7 @@
                 $query->the_post()  
                 ?>
                 <article class="post-news">
-                    <a href="<?php the_permalink(); ?>" title="<?php echo $title ?>">
+                    <a href="<?php the_permalink(); ?>" title="Kliknij, aby przejść do <?php the_title() ?>">
                         <div class="post-news__image">
                             <?php the_post_thumbnail();?>
                         </div>
@@ -120,7 +120,7 @@
                 $query->the_post()  
                 ?>
                 <article class="post-news">
-                    <a href="<?php the_permalink(); ?>" title="<?php echo $title ?>">
+                    <a href="<?php the_permalink(); ?>" title="Kliknij, aby przejść do <?php the_title() ?>">
                         <div class="post-news__image">
                             <?php the_post_thumbnail();?>
                         </div>
@@ -145,7 +145,7 @@
                 $query->the_post()  
                 ?>
                 <article class="post-news">
-                    <a href="<?php the_permalink(); ?>" title="<?php echo $title ?>">
+                    <a href="<?php the_permalink(); ?>" title="Kliknij, aby przejść do <?php the_title() ?>">
                         <div class="post-news__image">
                             <?php the_post_thumbnail();?>
                         </div>
@@ -175,20 +175,20 @@
 <?php
 $args = array(
     'post_html' => '
-    <article class="post">
+    <div class="post">
         <div>
             {thumb_img}
         </div>
         <h3 class="post__header">{text_title}</h3>
         <div class="post__text-wrapper">
-            <p>{summary}</p><a class="post-link" href="{url}" aria-label="Przejdź do {text_title}"> Czytaj dalej</a>
+            <p>{summary}</p><a class="post-link" href="{url}" title="Kliknij, aby przejść do {text_title}" aria-label="Kliknij, aby przejśc do {text_title}"> Czytaj dalej</a>
         </div>
         <div class="post__tag">
             <hr class="post-line" />
         </div>
         <div class="post__date"><i class="far fa-clock" aria-label="ikonka zegara"></i><time class="post-date-paragraph" datetime="{date}">{date}</time></div>
-
-    </article>
+       
+    </div>
     ',
     'thumbnail_width' => 360,
     'thumbnail_height' => 230,
@@ -329,7 +329,7 @@ wpp_get_mostpopular($args);
                     <?php endif;?>
                 </div>
                 <div class="sport-column-footer">
-                    <a class="sport-column-button" href="/wydarzenia/kategoria/zajecia/">Więcej</a>
+                    <a class="sport-column-button" href="/wydarzenia/kategoria/zajecia/" title="Kliknij, aby zobaczyć więcej zajęć">Więcej</a>
                 </div>
             </div>
             <div class="sport-column sport-column--big">
@@ -351,11 +351,11 @@ wpp_get_mostpopular($args);
                         <?php the_post_thumbnail(); ?>
                     </div>
                     <div class="sport-column-content">
-                        <h4 class="sport-column-content__title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h4>
+                        <h4 class="sport-column-content__title"><?php the_title() ?></h4>
                         <div class="sport-column-content__box">
                             <?php the_content();?>
                         </div>
-                        <a class="sport-column-content__link" href="<?php the_permalink(); ?>" aria-label="Przejdź do <?php the_title()?>"> Czytaj dalej</a>   
+                        <a class="sport-column-content__link" href="<?php the_permalink(); ?>" title="Kliknij, aby przejśc do <?php the_title()?>" aria-label="Kliknij, aby przejśc do <?php the_title()?>"> Czytaj dalej</a>   
                         <div class="sport-column-content__line"><hr class="post-line" />
                             <div class="post-categories">
                                 <?php $categories = get_the_category();
@@ -363,7 +363,7 @@ wpp_get_mostpopular($args);
                                     $output = '';
                                     if ( ! empty( $categories ) ) {
                                         foreach( $categories as $category ) {
-                                            $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" aria-label="' . esc_attr( sprintf( __( 'Zobacz wszystkie posty w %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+                                            $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" aria-label="' . esc_attr( sprintf( __( 'Zobacz wszystkie posty w kategorii %s', 'textdomain' ), $category->name ) ) . '" title="' . esc_attr( sprintf( __( 'Zobacz wszystkie posty w kategorii %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
                                         }
                                         echo trim( $output, $separator );
                                     }
@@ -396,14 +396,14 @@ wpp_get_mostpopular($args);
                         ?>
                         <?php while (  $the_query->have_posts() ) :  $the_query->the_post(); 
                         ?>
-                    <article class="post">
+                    <div class="post">
                             <div>
                                 <div>
                                     <?php the_post_thumbnail(); ?>
                                 </div>
                             </div>
-                            <h3 class="post__header"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
-                            <div class="post__text-wrapper"><p><?php the_excerpt(); ?></p><a class="post-link" href="<?php the_permalink(); ?>" aria-label="Przejdź do <?php the_title()?>"> Czytaj dalej</a></div>
+                            <h3 class="post__header"><?php the_title() ?></h3>
+                            <div class="post__text-wrapper"><p><?php the_excerpt(); ?></p><a class="post-link" href="<?php the_permalink(); ?>" title="Kliknij, aby przejść do <?php the_title() ?>" aria-label="Kliknij, aby przejść do <?php the_title()?>"> Czytaj dalej</a></div>
                             <div class="post__tag">
                             <hr class="post-line" />
                             <div class="post-categories">
@@ -412,7 +412,7 @@ wpp_get_mostpopular($args);
                                     $output = '';
                                     if ( ! empty( $categories ) ) {
                                         foreach( $categories as $category ) {
-                                            $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" aria-label="' . esc_attr( sprintf( __( 'Zobacz wszystkie posty w %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+                                            $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" aria-label="' . esc_attr( sprintf( __( 'Kliknij, aby zobaczyć wszystkie posty w kategorii %s', 'textdomain' ), $category->name ) ) . '" title="' . esc_attr( sprintf( __( 'Kliknij, aby zobaczyć wszystkie posty w kategorii %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
                                         }
                                         echo trim( $output, $separator );
                                     }
@@ -421,15 +421,14 @@ wpp_get_mostpopular($args);
                         </div>
                         <div class="post__date"><i class="far fa-clock" aria-label="ikonka zegara"></i><time class="post-date-paragraph" datetime="<?php echo get_the_date('Y-m-d');?>T<?php the_time('H:m:s')?>" property='datePublished'><?php echo get_the_date('');?></time></div>
                     
-                            
-                    </article>
+                    </div>
                     
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                 </div>
         </div>
         <footer class="section-footer">
-            <a class="section-footer__link" href="/blog">Zobacz więcej <span class="f-c-purple">postów</span></a>
+            <a class="section-footer__link" href="/blog" title="Kliknij, aby zobaczyć więcej postów">Zobacz więcej <span class="f-c-purple">postów</span></a>
         </footer>
     </section>
     <section class="site-content site-description">

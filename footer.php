@@ -26,7 +26,7 @@ $args = array(
         </div>
         <h3 class="post__header">{text_title}</h3>
         <div class="post__text-wrapper">
-            <p>{summary}</p><a class="post-link" href="{url}" aria-label="Przejdź do {text_title}"> Czytaj dalej</a>
+            <p>{summary}</p><a class="post-link" href="{url}" title="Kliknij, aby przejść do {text_title}" aria-label="Kliknij, aby przejśc do {text_title}"> Czytaj dalej</a>
         </div>
         <div class="post__tag">
             <hr class="post-line" />
@@ -84,17 +84,13 @@ wpp_get_mostpopular($args);
                 <?php }?>
         </div>
         <div class="promoted-site-carusele-options">
-            <button class="slider-btn" id="promotedSliderStop" aria-label="Zatrzymaj animację slidera">Zatrzymaj</button>
-            <button class="slider-btn" id="promotedSliderStart" aria-label="Wznów animację slidera">Wznów</button>
+            <button class="slider-btn" id="promotedSliderStop" title="Kliknij, aby zatrzymać karuzele" aria-label="Zatrzymaj animację slidera">Zatrzymaj</button>
+            <button class="slider-btn" id="promotedSliderStart" title="Kliknij, aby wznowić karuzele" aria-label="Wznów animację slidera">Wznów</button>
         </div>
     </div>
     <div class="footer-main">
         <div class="footer-main__column">
-            <a class="footer-media-box" aria-label="Przejdź do strony Biuletyn Informacji Publicznej (BIP)" href="http://goksir-lipusz.biuletyn.net/">
-                <i class="bip-logo"></i>
-                <p >Biuletyn informacji publicznej</p>
-            </a>
-            <a class="footer-media-box" aria-label="Przejdź do strony GOKSiR na Facebooku" href="https://www.facebook.com/goksir.lipusz">
+            <a class="footer-media-box" title="Kliknij,aby przejśc do strony GOKSiR na Facebooku" aria-label="Kliknij,aby przejśc do strony GOKSiR na Facebooku" href="https://www.facebook.com/goksir.lipusz">
                 <div class="facebook-circle"><i class="fab fa-facebook-f"></i></div>
                 <p >Facebook</p>
             </a>
@@ -120,8 +116,8 @@ wpp_get_mostpopular($args);
                     <li class="footer-menu-list__item"><p class="footer-menu-text">Województwo: Pomorskie</p></li>
                     <li class="footer-menu-list__item"><p class="footer-menu-text">Powiat: Kościerski</p></li>
                     <li class="footer-menu-list__item"><p class="footer-menu-text">Gmina: Lipusz</p></li>
-                    <li class="footer-menu-list__item"><a class="footer-menu-text" aria-label="Zadzwoń pod numer 58 687 45 77" href="tel:+48586874577" >Telefon: 58 687 45 77</a></li>
-                    <li class="footer-menu-list__item"><a class="footer-menu-text" aria-label="Wyślij email pod adres kontakt@goksir.eu" href="mailto:goksir@goksir.eu">goksir@goksir.eu</a></li>
+                    <li class="footer-menu-list__item"><a class="footer-menu-text" title="Zadzwoń pod numer +586874577" aria-label="Zadzwoń pod numer 58 687 45 77" href="tel:+48586874577" >Telefon: 58 687 45 77</a></li>
+                    <li class="footer-menu-list__item"><a class="footer-menu-text" title="Kliknij, aby rozpocząć wysłanie emaila za pomocą wybranej aplikacji w systemie do goksir@goksir.eu" aria-label="Kliknij, aby rozpocząć wysłanie emaila za pomocą wybranej aplikacji w systemie do goksir@goksir.eu" href="mailto:goksir@goksir.eu">Email: goksir@goksir.eu</a></li>
                 </ul>
             </div>
         </div>
@@ -146,7 +142,7 @@ wpp_get_mostpopular($args);
         </div>
     </div>
     <div class="footer-policy">
-        <p class="footer-policy__text">Copyright © 2020 <a class="footer-policy-link" href="#">GOKSiR</a> Wszelkie prawa zastrzeżone. Projekt i wykonanie <a class="footer-policy-link" href="http://www.serwisman.com">Serwisman.com</a></p>
+        <p class="footer-policy__text">Copyright © 2021 <a class="footer-policy-link" href="#" title="Kliknij, aby przejść do strony głównej">GOKSiR</a> Wszelkie prawa zastrzeżone. Projekt i wykonanie <a class="footer-policy-link" href="http://www.serwisman.com" title="Kliknij, aby przejśc do strony www.serwisman.com">Serwisman.com</a></p>
     </div>
 </footer>
 </main>

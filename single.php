@@ -28,7 +28,7 @@ $args = array(
         </div>
         <h2 class="post__header">{text_title}</h2>
         <div class="post__text-wrapper">
-            <p>{summary}</p><a class="post-link" href="{url}" aria-label="Przejdź do {text_title}"> Czytaj dalej</a>
+            <p>{summary}</p><a class="post-link" href="{url}" title="Kliknij, aby przejść do {text_title}" aria-label="Kliknij, aby przejśc do {text_title}"> Czytaj dalej</a>
         </div>
 
     ',
@@ -38,23 +38,27 @@ $args = array(
     'range' => 'last24hours',
     'order_by' => 'views',
     'excerpt_length' => 80,
-    'wpp_start' => "<div>",
+    'wpp_start' => "<div class='post post--small'>",
     'wpp_end' => "</div>"
 );
 wpp_get_mostpopular($args);
 ?>
-            <div class="site-post-social-box">
+<div class="site-post-social-box">
                 <p class="site-post-social-text">Pomoż innym dotrzeć <span class="f-c-purple">udostępniając</span> nasz artykuł</p>
-                <button class="button-social-post button-social-post--facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
-                <button class="button-social-post" id="btn-copy-link-post"><i class="fas fa-link"></i> Skopiuj link</button>
-                <input type="text" value="URL" id="copyURL" class="input-copy-url" readonly="readonly" tabindex="-1">
+                <!-- AddToAny BEGIN -->
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_copy_link"></a>
+                </div>
+                <script async src="https://static.addtoany.com/menu/page.js"></script>
+                <!-- AddToAny END -->
             </div>
             <?php if(!empty(get_theme_mod('set_post_information-title'))){?>
             <div class="site-post-information">
                 <h3 class="site-post-information__title"><?php echo get_theme_mod('set_post_information-title');?></h3>
                 <p class="site-post-information__content"><?php echo get_theme_mod('set_post_information-text');?></p>
             </div>
-            <?php };?>           
+            <?php };?>   
         </section>
     </div>
 

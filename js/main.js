@@ -255,26 +255,6 @@
         }))
     }
     clickMenuEvent()
-    const currentCatItem = () => {
-        let categories = document.querySelector('#categoriesList')
-        if (categories != undefined) {
-            let categoriesList = categories.children
-            let addClassCurrent, firstCategoryItem
-            firstCategoryItem = categoriesList[0]
-            for (category of categoriesList) {
-                if (category.classList.value.includes('current-cat') == true) {
-                    addClassCurrent = ''
-                } else if (firstCategoryItem == category) {
-                    addClassCurrent = 'current-cat'
-                }
-
-            }
-            firstCategoryItem = categoriesList[0]
-            firstCategoryItem.classList.add(addClassCurrent)
-
-        }
-    }
-    currentCatItem()
     const flyOutMenu = () => {
         var menuItems = document.querySelectorAll('.navbar .menu-item-has-children');
         Array.prototype.forEach.call(menuItems, function(el, i) {
@@ -301,7 +281,7 @@
         });
         //Escape close event
         document.addEventListener('keydown', (el) => {
-            if (el.keyCode == "27") {
+            if (el.key == "Escape") {
                 menuItems.forEach((element) => {
                     element.classList.remove('menu-item-has-children--focus')
                 })
@@ -309,5 +289,88 @@
         })
     }
     flyOutMenu()
+    const addAutoComplete = () =>{
+        let nameInput = document.querySelector("#formName");
+        let emailInput = document.querySelector("#formEmail");
+        let textInput = document.querySelector("#formText");
+        let response = document.querySelector('.wpcf7-response-output')
+        if(nameInput !== null && emailInput !== null && textInput !== null){
+            nameInput.autocomplete = "name"
+            nameInput.title = "Imię i nazwisko"
+            emailInput.autocomplete = 'email'
+            emailInput.title = 'Adres email'
+            textInput.autocomplete = '1'
+            textInput.title = "Treść wiadomości"
+        }
+        if(response !== null){
+            response.setAttribute("role", "status")
+        }
+    }
+    addAutoComplete()
+    const addTitleAttribute = () =>{
+        let allMenuItem = document.querySelectorAll('.menu-item-object-page')
+        let allPageMenuItems = document.querySelectorAll(".page_item")
+        let allCatItemsInAllPostPage = document.querySelectorAll(".cat-item")
+        let pageNumbersInAllPostPage = document.querySelectorAll(".page-numbers")
+        let sendButtonInContactPage = document.querySelectorAll("input.wpcf7-form-control")
+        let checkboxInContactPage = document.querySelectorAll(".form-rodo")
+        let allLinkInPagePost = document.querySelectorAll(".post-content a")
+
+
+        console.log(allLinkInPagePost);
+
+        
+        if(allMenuItem.length !== 0){
+            addTitleAttributeLoop(allMenuItem, 'Kliknij, aby przejść do')
+            addAriaLabelAttributeLoop(allMenuItem, 'Kliknij, aby przejść do')
+        }
+        if(allPageMenuItems.length !== 0){
+            addTitleAttributeLoop(allPageMenuItems, 'Kliknij, aby przejść do')
+            addAriaLabelAttributeLoop(allPageMenuItems, 'Kliknij, aby przejść do')
+        };
+        if(allCatItemsInAllPostPage.length !== 0){
+            addTitleAttributeLoop(allCatItemsInAllPostPage, 'Kliknij, aby przejść do kategorii')
+            addAriaLabelAttributeLoop(allCatItemsInAllPostPage, 'Kliknij, aby przejść do kategorii')
+        }
+        if(pageNumbersInAllPostPage.length !== 0){
+            addTitleAttributeLoop(pageNumbersInAllPostPage, 'Kliknij, aby przejść do strony')
+            addAriaLabelAttributeLoop(pageNumbersInAllPostPage, 'Kliknij, aby przejść do strony')
+        }
+        if(sendButtonInContactPage.length !== 0){
+            addTitleAttributeLoop(sendButtonInContactPage, 'Kliknij, aby wysłać wiadomość')
+            addAriaLabelAttributeLoop(sendButtonInContactPage, 'Kliknij, aby wysłać wiadomość')
+        }
+        if(checkboxInContactPage.length !== 0){
+            addTitleAttributeLoop(checkboxInContactPage, 'Zaznacz to pole, aby kontynuować')
+            addAriaLabelAttributeLoop(checkboxInContactPage, 'Zaznacz to pole, aby kontynuować')
+        }
+        if(allLinkInPagePost.length !== 0){
+            text = (allLinkInPagePost.target == '')? 'Kliknij, aby przejść do' : 'Kliknij, aby przejść i otworzyć stronę w nowej karcie. Przekierowanie do'
+            addTitleAttributeLoop(allLinkInPagePost, 'Kliknij, aby przejść do')
+            addAriaLabelAttributeLoop(allLinkInPagePost, 'Kliknij, aby przejść do')
+
+        }
+        }
+    const addTitleAttributeLoop = (array, prefixText)=>{
+        array.forEach(item =>{
+            if(item.target == '_blank'){
+                item.title = prefixText + ' ' + item.innerText + '. Strona otworzy się w nowej karcie'
+            }
+            else{
+                item.title = prefixText + ' ' + item.innerText
+            }
+        })
+    }
+    const addAriaLabelAttributeLoop = (array, prefixText)=>{
+        array.forEach(item =>{
+            if(item.target == '_blank'){
+                item.setAttribute('aria-label', prefixText + ' ' + item.innerText + '. Strona otworzy się w nowej karcie')  
+            }
+            else{
+                item.setAttribute('aria-label', prefixText + ' ' + item.innerText)
+            }
+        })
+    }
+    addTitleAttribute()
 
 })()

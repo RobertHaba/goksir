@@ -18,7 +18,21 @@
         </div>
         <div class="navbar__logo navbar-logo" >
             <div class="navbar-logo__image">
-                <?php the_custom_logo();?>
+                    <?php 
+                    // Get Custom Logo URL
+                    $custom_logo_id = get_theme_mod( 'custom_logo' );
+                    $custom_logo_data = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                    $custom_logo_url = $custom_logo_data[0];
+                ?>
+
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" 
+                title="Kliknij, aby przejść do strony głównej" 
+                rel="home">
+
+                    <img src="<?php echo esc_url( $custom_logo_url ); ?>" 
+                        alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"/>
+
+                </a>
             </div>
             <div class="navbar-logo__box">
                 <p class="navbar-logo-title"><?php bloginfo('name'); ?></p>
